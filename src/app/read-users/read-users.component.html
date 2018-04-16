@@ -1,0 +1,48 @@
+<div class="row m-b-18px">
+    <div class="col-md-12">
+        <!-- button to create new User -->
+        <a (click)="createUser()" class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-plus'></span> Create User
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <!-- HTML table for our list of user records -->
+        <table class='table table-hover table-responsive table-bordered'>
+
+            <tr>
+                <th>Id</th>
+                <th>User Role Id</th>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+
+            <!-- Use *ngFor directive to loop throught our list of users. -->
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.user_roles_id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <!-- read one user details button -->
+                    <a (click)="readOneUser(user.id)" class='btn btn-primary m-r-5px'>
+                        <span class='glyphicon glyphicon-eye-open'></span> Read
+                    </a>
+
+                    <!-- edit user details button -->
+                    <a (click)="updateUser(user.id)" class='btn btn-info m-r-5px'>
+                        <span class='glyphicon glyphicon-edit'></span> Edit
+                    </a>
+
+                    <!-- delete user/user details button -->
+                    <a (click)="deleteUser(user.id)" class='btn btn-danger m-r-5px'>
+                        <span class='glyphicon glyphicon-remove'></span> Delete
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
